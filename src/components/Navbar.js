@@ -14,6 +14,7 @@ export const Navbar = () => {
                 <div className="flex justify-center">
                     <div className="flex space-x-4">
                         <a href="#" className="text-white hover:bg-gray-600 rounded-md p-1">Inicio</a>
+                        <a href="/personaje" className="text-white hover:bg-gray-600 rounded-md p-1">Personajes</a>
                         <a href="#" className="text-white hover:bg-gray-600 rounded-md p-1">Mercado</a>
                         <div className="relative" onClick={toggleDropdown}>
                             <button className="text-white hover:bg-gray-600 rounded-md p-1">Calculadora</button>
