@@ -6,23 +6,24 @@ export const Personaje = () => {
     const { store, actions } = useContext(Context);
 
     useEffect(() => {
-        actions.getPersonajes();
-    }, [actions]);
-
-    if (store.personajes.length === 0) {
+        actions.getPersonajes("pelotuda");
+    }, []);
+    console.log(store, "personajes.js");
+    if (!store.personajes.players) {
         return <p>Cargando...</p>;
-    }
+    } else {
 
-    return (
-        <div>
-            {store.personajes.map((personaje) => (
-                <div key={personaje.Id}>
-                    <p>Nombre: {personaje.Name}</p>
-                    <p>ID: {personaje.Id}</p>
-                    <p>Guild ID: {personaje.GuildId}</p>
-                    <p>Guild Name: {personaje.GuildName}</p>
-                </div>
-            ))}
-        </div>
-    );
+        return (
+            <div>
+                {store.personajes.players.map((r) => (
+                    <div key={r.Id}>
+                        <p>Nombre: {r.Name}</p>
+                        <p>ID: {r.Id}</p>
+                        <p>Guild ID: {r.GuildId}</p>
+                        <p>Guild Name: {r.GuildName}</p>
+                    </div>
+                ))}
+            </div>
+        );
+    }
 };

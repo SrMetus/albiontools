@@ -18,7 +18,7 @@ const injectContext = (PassedComponent) => {
           }),
       })
     );
-   
+    //console.log(state.store, "appConetext");
     useEffect(() => {
 
     }, []);
