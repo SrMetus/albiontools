@@ -1,11 +1,13 @@
 import('node-fetch').then(({ default: fetch }) => {
     const express = require('express');
+    const cors = require('cors');
     const app = express();
     const PORT = process.env.PORT || 3000;
-  
+
+    app.use(cors())
     app.get('/api/data', async (req, res) => {
       try {
-        const response = await fetch('https://gameinfo.albiononline.com/api/gameinfo/search?q=pelotuda');
+        const response = await fetch('https://gameinfo.albiononline.com/api/gameinfo/search?q=man');
         if (!response.ok) {
           throw new Error('Error al obtener los datos de la API de terceros');
         }
