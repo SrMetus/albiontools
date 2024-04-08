@@ -1,29 +1,48 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
-
 
 export const Personaje = () => {
     const { store, actions } = useContext(Context);
+    const [ personaje, setPersonaje ] = useState([]);
+    const [ searchTerm, setSearchTerm ] = useState(""); // valores de input
+
+    const handleKeyDown = (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            handleSearch();
+        }
+    };
 
     useEffect(() => {
-        actions.getPersonajes("pelotuda");
-    }, []);
-    console.log(store, "personajes.js");
-    if (!store.personajes.players) {
-        return <p>Cargando...</p>;
-    } else {
+        actions.getPersonajes("");
+    }, [actions]);
 
-        return (
+    return (
+        <>
             <div>
-                {store.personajes.players.map((r) => (
-                    <div key={r.Id}>
-                        <p>Nombre: {r.Name}</p>
-                        <p>ID: {r.Id}</p>
-                        <p>Guild ID: {r.GuildId}</p>
-                        <p>Guild Name: {r.GuildName}</p>
-                    </div>
-                ))}
+                <h1>Personajes</h1>
+                <input 
+                    type="text"
+                    value={searchTerm}
+                    onChange={(event) => setSearchTerm(event.target.value)}
+                    onKeyDown={handleKeyDown}
+                    placeholder="Buscar personaje..."
+                />
             </div>
-        );
-    }
+            <div>
+                {store.personajes.length === 0 ? (
+                    <p>Cargando...</p>
+                ) : (
+                    store.personajes.map((player) => (
+                        <div key={player.Id}>
+                            <p>Nombre: {player.Name}</p>
+                            <p>ID: {player.Id}</p>
+                            <p>ID del gremio: {player.GuildId}</p>
+                            <p>Nombre del gremio: {player.GuildName}</p>
+                        </div>
+                    ))
+                )}
+            </div>
+        </>
+    );
 };
