@@ -32,7 +32,7 @@ import('node-fetch').then(({ default: fetch }) => {
       } else {
         res.status(400).json({ error: 'No se ha enviado el parámetro playerId' });
       }
-      
+
     } catch (error) {
       console.error('Error al obtener los datos de la API de terceros:', error);
       res.status(500).json({ error: 'Error al obtener los datos de la API de terceros' });

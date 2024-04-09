@@ -1,7 +1,9 @@
 import React from "react";
 
 export const InputPlayer = ({ search, searcher }) => {
-    <div>
+    return (
+        <div>
+            <form onSubmit={""} >
                 <h1>Personajes</h1>
                 <input
                     type="text"
@@ -9,5 +11,7 @@ export const InputPlayer = ({ search, searcher }) => {
                     onChange={searcher}
                     placeholder="Nombre del jugador"
                 />
-            </div>
+            </form>
+        </div>
+    )
 }

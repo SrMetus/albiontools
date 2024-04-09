@@ -18,7 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
       },
       getPersonajesId: (playerId) => {
-        fetch(`http://localhost:3002/api/data?player=${playerId}`)
+        fetch(`http://localhost:3002/api/data?playerId=${playerId}`)
           .then(data => {
             if (!data.ok) {
               throw new Error(`Error ${data.status} al obtener los datos`);
