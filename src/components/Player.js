@@ -4,49 +4,37 @@ import { InputPlayer } from "./InputPlayer";
 
 export const Player = () => {
     const { store, actions } = useContext(Context);
-    const [search, setSearch] = useState("");
+    const [searchTerm, setSearchTerm] = useState("");
 
-    const searcher = (e) => {
-        setSearch(e.target.value);
+    const handleSearch = (searchTerm) => {
+        setSearchTerm(searchTerm); // Actualizar el término de búsqueda
     };
 
     useEffect(() => {
-        if (search.trim() !== "") {
-            actions.getPersonajes(search);
+        if (searchTerm.trim() !== "") {
+            actions.getPersonajes(searchTerm); // Realizar la búsqueda cuando el término de búsqueda cambie
         }
-    }, [actions, search]);
+    }, [actions, searchTerm]);
 
     let results = store.personajes.players;
-    if (!store.personajes.players) {
-        return (
-           <InputPlayer search={search} searcher={searcher} />
-        );
-    } else {
-        if (search.trim() !== "") {
-            results = results.filter((player) =>
-                player.Name.toLowerCase().includes(search.toLowerCase())
-            );
-        }
-    
-        return (
-            <div>
-                <InputPlayer search={search} searcher={searcher} />
-                <div>
-                    {results.length > 0 ? (
-                        results.map((player) => (
-                            <div key={player.Id}>
-                                <p>Nombre: {player.Name}</p>
-                                <p>ID: {player.Id}</p>
-                                <p>Guild ID: {player.GuildId}</p>
-                                <p>Guild Name: {player.GuildName}</p>
-                            </div>
-                        ))
-                    ) : (
 
-                        <p>{search ? "Cargando datos." : "Resultado no encontrado." } </p>
-                    )}
-                </div>
+    return (
+        <div>
+            <InputPlayer onSearch={handleSearch} /> {/* Pasar la función de búsqueda al componente InputPlayer */}
+            <div>
+                {results && results.length > 0 ? (
+                    results.map((player) => (
+                        <div key={player.Id}>
+                            <p>Nombre: {player.Name}</p>
+                            <p>Guild Name: {player.GuildName}</p>
+                            <p>ID: {player.Id}</p>
+                            <p>Guild ID: {player.GuildId}</p>
+                        </div>
+                    ))
+                ) : (
+                    <p>{searchTerm ? "Cargando datos..." : "Resultado no encontrado."}</p>
+                )}
             </div>
-        );
-    }
+        </div>
+    );
 };
