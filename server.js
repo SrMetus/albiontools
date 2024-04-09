@@ -10,7 +10,8 @@ import('node-fetch').then(({ default: fetch }) => {
       const url = new URL('http://localhost' + req.url)
       //console.log(url);
       let player = url.searchParams.get('player');
-      if (player) {
+      let playerId = url.searchParams.get('playerId');
+      if (player) { // obtener lista de los 10 primero personajes y guild, segun el nombre del jugador o guild
         const response = await fetch(`https://gameinfo.albiononline.com/api/gameinfo/search?q=${player}`); // Ruta del servidor
         if (!response.ok) {
           throw new Error('Error al obtener los datos de la API de terceros');
@@ -20,6 +21,18 @@ import('node-fetch').then(({ default: fetch }) => {
       } else {
         res.status(400).json({ error: 'No se ha enviado el parámetro player' });
       }
+
+      if (playerId) { // obtener informacion del personaje segun su ID
+        const response = await fetch(`https://gameinfo.albiononline.com/api/gameinfo/players/${playerId}`);
+        if (!response.ok) {
+          throw new Error('Error al obtener los datos de la API de terceros');
+        }
+        const data = await response.json();
+        res.json(data);
+      } else {
+        res.status(400).json({ error: 'No se ha enviado el parámetro playerId' });
+      }
+      
     } catch (error) {
       console.error('Error al obtener los datos de la API de terceros:', error);
       res.status(500).json({ error: 'Error al obtener los datos de la API de terceros' });

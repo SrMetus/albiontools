@@ -4,7 +4,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Home } from "./views/Home";
-import { Personaje } from "./views/Personajes";
+import { Personajes } from "./views/Personajes";
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/personaje" element={<Personaje />} />
+              <Route path="/personaje" element={<Personajes />} />
             </Routes>
           <Footer />
         </ScrollToTop>
