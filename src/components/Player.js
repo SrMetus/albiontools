@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import { InputPlayer } from "./InputPlayer";
+import { CardPlayer } from "./CardPlayer";
 
 export const Player = () => {
     const { store, actions } = useContext(Context);
@@ -22,18 +23,11 @@ export const Player = () => {
         <div>
             <InputPlayer onSearch={handleSearch} /> {/* Pasar la función de búsqueda al componente InputPlayer */}
             <div>
-                {results && results.length > 0 ? (
-                    results.map((player) => (
-                        <div key={player.Id}>
-                            <p>Nombre: {player.Name}</p>
-                            <p>Guild Name: {player.GuildName}</p>
-                            <p>ID: {player.Id}</p>
-                            <p>Guild ID: {player.GuildId}</p>
-                        </div>
-                    ))
-                ) : (
-                    <p>{searchTerm ? "Cargando datos..." : "Resultado no encontrado."}</p>
+                {results && results.length > 0 && (
+                    <CardPlayer players={results} />
                 )}
+                {!results && <p>Cargando datos...</p>}
+                {results && results.length === 0 && <p>Resultado no encontrado.</p>}
             </div>
         </div>
     );
