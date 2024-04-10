@@ -3,6 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       personajes: [],
       personaje: "",
+      personajesInfo: [],
+      personajeInfo: "",
     },
     actions: {
       getPersonajes: (player) => {
@@ -26,7 +28,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             return data.json();
           })
           .then(data => {
-            setStore({ personajesId: data });
+            setStore({ personajeInfo: data });
           })
       }
     },

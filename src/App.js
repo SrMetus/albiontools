@@ -5,6 +5,7 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Home } from "./views/Home";
 import { Personajes } from "./views/Personajes";
+import { FullPlayer } from "./views/FullPlayer";
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/personaje" element={<Personajes />} />
-              <Route path="/personaje/:id" element={<Personajes />} />
+              <Route path="/personaje/:playerId" element={<FullPlayer />} />
             </Routes>
           <Footer />
         </ScrollToTop>
