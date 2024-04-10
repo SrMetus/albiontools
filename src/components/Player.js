@@ -26,8 +26,8 @@ export const Player = () => {
                 {results && results.length > 0 && (
                     <CardPlayer players={results} />
                 )}
-                {!results && <p>Cargando datos...</p>}
-                {results && results.length === 0 && <p>Resultado no encontrado.</p>}
+                {!results && <p className="text-white">Cargando datos...</p>}
+                {results && results.length === 0 && <p className="text-white">Resultado no encontrado.</p>}
             </div>
         </div>
     );

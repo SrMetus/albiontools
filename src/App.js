@@ -16,6 +16,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/personaje" element={<Personajes />} />
+              <Route path="/personaje/:id" element={<Personajes />} />
             </Routes>
           <Footer />
         </ScrollToTop>
