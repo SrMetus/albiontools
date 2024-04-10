@@ -28,7 +28,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             return data.json();
           })
           .then(data => {
-            setStore({ personajeInfo: data });
+            setStore({ personajesInfo: data });
           })
       }
     },
