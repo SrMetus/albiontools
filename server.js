@@ -25,7 +25,8 @@ import('node-fetch').then(({ default: fetch }) => {
         }
         const data = await response.json();
         res.json(data);
-        console.log(data);
+        //console.log(data);
+        return;
       } else {
         res.status(400).json({ error: 'No se ha enviado el parámetro player o playerId' });
       }
