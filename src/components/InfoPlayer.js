@@ -13,16 +13,16 @@ export const InfoPlayer = () => {
     const playerInfo = store.personajesInfo;
 
     return (
-        <div className="bg-gray-900 min-h-screen">
+        <div className="bg-gray-900 min-h-screen flex justify-center items-center">
             {playerInfo && playerInfo.LifetimeStatistics && playerInfo.LifetimeStatistics.PvE && playerInfo.LifetimeStatistics.Gathering ? (
                 <div>
-                    <div className="p-4">
+                    <div className="mt-[-180px] p-4 pb-1">
                         <h1 className="text-red-500 text-2xl font-semibold">{playerInfo.Name}</h1>
                         <h4 className="text-gray-400">Player ID: {playerInfo.Id}</h4>
                         <h4 className="text-gray-400">Total Fame: {playerInfo.LifetimeStatistics.Gathering.All.Total}</h4>
                     </div>
-                    <div className="flex flex-wrap">
-                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+                    <div className="flex">
+                        <div className="w-full md:w-1/2 lg:w-1/4 p-4 pb-1">
                             <h1 className="text-white text-lg font-semibold">PVE Fame</h1>
                             <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.PvE.Total}</h4>
                         </div>
@@ -40,8 +40,8 @@ export const InfoPlayer = () => {
                         </div>
                     </div>
                     <hr className="border-gray-600 my-2" />
-                    <h1 className="text-orange-600 text-lg font-semibold p-4">PVE FAME SPECIFIED</h1>
-                    <div className="flex flex-wrap">
+                    <h1 className="text-orange-600 text-lg font-semibold p-4 pb-1">PVE FAME SPECIFIED</h1>
+                    <div className="flex">
                         <div className="w-full md:w-1/2 lg:w-1/4 p-4">
                             <h1 className="text-white text-lg font-semibold">ROYALS</h1>
                             <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.PvE.Royal}</h4>
@@ -59,7 +59,7 @@ export const InfoPlayer = () => {
                             <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.PvE.Hellgate}</h4>
                         </div>
                         <div className="w-full md:w-1/2 lg:w-1/4 p-4">
-                            <h1 className="text-white text-lg font-semibold">CARRUPTED DUNGEON</h1>
+                            <h1 className="text-white text-lg font-semibold">CARRUPTED</h1>
                             <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.PvE.CorruptedDungeon}</h4>
                         </div>
                         <div className="w-full md:w-1/2 lg:w-1/4 p-4">
@@ -68,6 +68,67 @@ export const InfoPlayer = () => {
                         </div>
                     </div>
                     <hr className="border-gray-600 my-2" />
+                    <h1 className="text-orange-600 text-lg font-semibold p-4 pb-1">GATHERING FAME SPECIFIED</h1>
+                    <div className="flex">
+                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+                            <h1 className="text-white text-lg font-semibold">ROYALS</h1>
+                            <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.Gathering.All.Royal}</h4>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+                            <h1 className="text-white text-lg font-semibold">OUTLANDS</h1>
+                            <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.Gathering.All.Outlands}</h4>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+                            <h1 className="text-white text-lg font-semibold">AVALON</h1>
+                            <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.Gathering.All.Avalon}</h4>
+                        </div>
+                    </div>
+                    <hr className="border-gray-600 my-2" />
+                    <div className="flex">
+                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+                            <h1 className="text-white text-lg font-semibold">FIBER</h1>
+                            <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.Gathering.Fiber.Total}</h4>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+                            <h1 className="text-white text-lg font-semibold">HIDE</h1>
+                            <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.Gathering.Hide.Total}</h4>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+                            <h1 className="text-white text-lg font-semibold">ORE</h1>
+                            <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.Gathering.Ore.Total}</h4>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+                            <h1 className="text-white text-lg font-semibold">ROCK</h1>
+                            <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.Gathering.Rock.Total}</h4>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+                            <h1 className="text-white text-lg font-semibold">WOOD</h1>
+                            <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.Gathering.Wood.Total}</h4>
+                        </div>
+                    </div>
+                    <hr className="border-gray-600 my-2" />
+                    <div className="flex">
+                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+                            <h1 className="text-white text-lg font-semibold">GATHERING FAME</h1>
+                            <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.Gathering.All.Total}</h4>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+                            <h1 className="text-white text-lg font-semibold">CRAFTING FAME</h1>
+                            <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.Crafting.Total}</h4>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+                            <h1 className="text-white text-lg font-semibold">CRYSTAL LEAGUE</h1>
+                            <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.CrystalLeague}</h4>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+                            <h1 className="text-white text-lg font-semibold">FISHING FAME</h1>
+                            <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.FishingFame}</h4>
+                        </div>
+                        <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+                            <h1 className="text-white text-lg font-semibold">FARMING FAME</h1>
+                            <h4 className="text-gray-400">{playerInfo.LifetimeStatistics.FarmingFame}</h4>
+                        </div>
+                    </div>
                 </div>
             ) : (
                 <h1>Cargando...</h1>
