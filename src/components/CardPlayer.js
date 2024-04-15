@@ -34,22 +34,22 @@ export const CardPlayer = ({ players }) => {
                                     </Link>
                                 </th>
                                 <td className="px-6 py-4">
-                                    <Link to={`/personajes/${player.Id}`} className="block w-full">
+                                    <Link to={`/personaje/${player.Id}`} className="block w-full">
                                         {player.GuildName}
                                     </Link>
                                 </td>
                                 <td className="px-6 py-4">
-                                    <Link to={`/personajes/${player.Id}`} className="block w-full">
+                                    <Link to={`/personaje/${player.Id}`} className="block w-full">
                                         {player.KillFame}
                                     </Link>
                                 </td>
                                 <td className="px-6 py-4">
-                                    <Link to={`/personajes/${player.Id}`} className="block w-full">
+                                    <Link to={`/personaje/${player.Id}`} className="block w-full">
                                         {player.DeathFame}
                                     </Link>
                                 </td>
                                 <td className="px-6 py-4">
-                                    <Link to={`/personajes/${player.Id}`} className="block w-full">
+                                    <Link to={`/personaje/${player.Id}`} className="block w-full">
                                         {player.FameRatio}
                                     </Link>
                                 </td>
