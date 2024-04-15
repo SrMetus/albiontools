@@ -6,6 +6,8 @@ import { Footer } from "./components/Footer";
 import { Home } from "./views/Home";
 import { Personajes } from "./views/Personajes";
 import { FullPlayer } from "./views/FullPlayer";
+import { Mercado } from "./views/Mercado";
+
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/personaje" element={<Personajes />} />
               <Route path="/personaje/:playerId" element={<FullPlayer />} />
+              <Route path="/mercado" element={<Mercado />} />
             </Routes>
           <Footer />
         </ScrollToTop>

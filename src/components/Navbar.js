@@ -13,9 +13,9 @@ export const Navbar = () => {
             <div className="container mx-auto px-4 py-6">
                 <div className="flex justify-center">
                     <div className="flex space-x-4">
-                        <a href="#" className="text-white hover:bg-gray-600 rounded-md p-1">Inicio</a>
+                        <a href="/" className="text-white hover:bg-gray-600 rounded-md p-1">Inicio</a>
                         <a href="/personaje" className="text-white hover:bg-gray-600 rounded-md p-1">Personajes</a>
-                        <a href="#" className="text-white hover:bg-gray-600 rounded-md p-1">Mercado</a>
+                        <a href="/mercado" className="text-white hover:bg-gray-600 rounded-md p-1">Mercado</a>
                         <div className="relative" onClick={toggleDropdown}>
                             <button className="text-white hover:bg-gray-600 rounded-md p-1">Calculadora</button>
                             <div className={`absolute bg-gray-700 mt-1 p-3 rounded-md ${dropdownOpen ? '' : 'hidden'}`}>

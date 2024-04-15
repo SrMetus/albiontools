@@ -18,7 +18,7 @@ export const InfoPlayer = () => {
                 <div>
                     <div className="mt-[-180px] p-4 pb-1">
                         <h1 className="text-red-500 text-2xl font-semibold">{playerInfo.Name}</h1>
-                        <h4 className="text-gray-400">Player ID: {playerInfo.Id}</h4>
+                        <h4 className="text-gray-400 text-sm">Player ID: {playerInfo.Id}</h4>
                         <h4 className="text-gray-400">Total Fame: {playerInfo.LifetimeStatistics.Gathering.All.Total}</h4>
                     </div>
                     <div className="flex">
