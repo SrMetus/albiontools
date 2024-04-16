@@ -10,27 +10,32 @@ import('node-fetch').then(({ default: fetch }) => {
       const url = new URL('http://localhost' + req.url);
       const player = url.searchParams.get('player');
       const playerId = url.searchParams.get('playerId');
+      const categorie = url.searchParams.get('categorie'); // Obtener el parámetro 'categorie'
 
-      if (player) { // obtener lista de los 10 primero personajes y guild, segun el nombre del jugador o guild
-        const response = await fetch(`https://gameinfo.albiononline.com/api/gameinfo/search?q=${player}`); // Ruta del servidor
+      if (player) { // obtener lista de los 10 primeros personajes y guilds, según el nombre del jugador o guild
+        const response = await fetch(`https://gameinfo.albiononline.com/api/gameinfo/search?q=${player}`);
         if (!response.ok) {
           throw new Error('Error al obtener los datos de la API de terceros');
         }
         const data = await response.json();
         res.json(data);
-      } else if (playerId) { // obtener informacion del personaje segun su ID
+      } else if (playerId) { // obtener información del personaje según su ID
         const response = await fetch(`https://gameinfo.albiononline.com/api/gameinfo/players/${playerId}`);
         if (!response.ok) {
           throw new Error('Error al obtener los datos de la API de terceros');
         }
         const data = await response.json();
         res.json(data);
-        //console.log(data);
-        return;
+      } else if (categorie) { // obtener todas las categorías
+        const response = await fetch(`https://api.openalbion.com/api/v3/categories`);
+        if (!response.ok) {
+          throw new Error('Error al obtener los datos de la API de terceros');
+        }
+        const data = await response.json();
+        res.json(data); // Devolver todo el JSON de la respuesta
       } else {
-        res.status(400).json({ error: 'No se ha enviado el parámetro player o playerId' });
+        res.status(400).json({ error: 'No se ha enviado el parámetro player, playerId o categorie' });
       }
-
     } catch (error) {
       console.error('Error al obtener los datos de la API de terceros:', error);
       res.status(500).json({ error: 'Error al obtener los datos de la API de terceros' });
