@@ -53,7 +53,6 @@ export const CardPlayer = ({ players }) => {
                                         {player.FameRatio}
                                     </Link>
                                 </td>
-
                             </tr>
                         ))}
                     </tbody>
