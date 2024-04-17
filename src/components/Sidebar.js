@@ -4,6 +4,7 @@ import { Context } from "../store/appContext";
 export const Sidebar = () => {
     const { store, actions } = useContext(Context);
     const [groupedCategories, setGroupedCategories] = useState({});
+    const [isVisible, setIsInvisible] = useState(false);
 
     useEffect(() => {
         // Llama a getCategories sin argumentos adicionales
@@ -28,7 +29,7 @@ export const Sidebar = () => {
             {Object.entries(groupedCategories).map(([type, categories]) => (
                 <div key={type}>
                     {/* Muestra el nombre del tipo de categoría */}
-                    <h2>Categoría: {type}</h2>
+                    <h2 onClick={() => setIsInvisible(!isVisible)}>Categoría: {type}</h2>
                     {/* Itera sobre cada categoría del tipo */}
                     <ul>
                         {categories.map(category => (
@@ -41,7 +42,9 @@ export const Sidebar = () => {
                                         {category.subcategories.map(subcategory => (
                                             <li key={subcategory.id}>
                                                 {/* Muestra el nombre de la subcategoría */}
-                                                <h4>{subcategory.name}</h4>
+                                                {isVisible && (
+                                                    <h4>{subcategory.name}</h4>
+                                                )}
                                             </li>
                                         ))}
                                     </ul>
