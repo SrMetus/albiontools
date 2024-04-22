@@ -6,7 +6,7 @@ export const Home = () => {
     return (
         <div>
             <p>Home</p>
-            <Sidebar /> {/* Pasa las categorías como prop al componente Sidebar */}
+            
         </div>
     );
 };
